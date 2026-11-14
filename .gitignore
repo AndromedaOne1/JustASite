@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+agents_for_everything (code)/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070a14">
+    <title>Universitatea de Stat din Moldova | USM</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/img/stema.jpg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Glowing Cursor (Desktop) -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo-brand">
+                <img src="assets/img/cropped-logo-new-GB.png" alt="USM Logo">
+                <div class="logo-text">
+                    <h1>USM</h1>
+                    <span id="t-nav-subtitle" data-i18n="nav.subtitle">Universitatea de Stat din Moldova</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#istorie" class="nav-link" data-i18n="nav.history">Istorie</a></li>
+                <li><a href="#facultati" class="nav-link" data-i18n="nav.faculties">Facultăți</a></li>
+                <li><a href="#institute" class="nav-link" data-i18n="nav.institutes">Institute</a></li>
+                <li><a href="#campus" class="nav-link" data-i18n="nav.campus">Campus</a></li>
+                <li><a href="tour360.html" class="nav-link" data-i18n="nav.tour360">Tur 360°</a></li>
+                <li><a href="faq.html" class="nav-link" data-i18n="nav.faq">FAQ</a></li>
+                <li><a href="#admitere" class="nav-link" data-i18n="nav.admission">Admitere 2026</a></li>
+            </ul>
+
+            <div class="header-right">
+                <div class="lang-switcher" id="lang-switcher">
+                    <button class="lang-btn active" data-lang="ro" aria-label="Română">RO</button>
+                    <button class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-image"></div>
+        <div class="hero-bg-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge-wrap">
+                <img src="assets/img/stema.jpg" alt="Stema USM">
+                <span class="hero-badge" data-i18n="hero.badge">Universitate Națională de Top</span>
+            </div>
+            <h1 class="hero-title" data-i18n="hero.title">Universitatea de Stat din Moldova</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Tradiție, Excelentă, Viitor. Învață de la cei mai buni și construiește carierea de care visezi.</p>
+            <div class="hero-buttons">
+                <a href="#facultati" class="btn-primary" data-i18n="hero.btnFaculties">Explorează Facultățile</a>
+                <a href="#admitere" class="btn-gold" data-i18n="hero.btnAdmission">Admitere 2026</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Banner -->
+    <section class="stats-section" id="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="14000" data-i18n="stats.students.label">Studenți</span>
+                <span class="stat-label" data-i18n="stats.students.label">Studenți</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="11" data-i18n="stats.faculties.label">Facultăți</span>
+                <span class="stat-label" data-i18n="stats.faculties.label">Facultăți</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="200" data-i18n="stats.medals.label">Medalii</span>
+                <span class="stat-label" data-i18n="stats.medals.label">Medalii</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Timeline -->
+    <section class="section-container" id="istorie">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="history.subtitle">Istoric</span>
+            <h2 class="section-title" data-i18n="history.title">1946 – 2026: 80 de ani de Excelentă</h2>
+        </div>
+
+        <div class="timeline-track" id="timeline-track">
+            <!-- Timeline items will be injected by JS -->
+        </div>
+    </section>
+
+    <!-- Faculties Filter & Cards -->
+    <section class="section-container" id="facultati">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="faculties.subtitle">Ofertă Academică</span>
+            <h2 class="section-title" data-i18n="faculties.title">Facultățile USM</h2>
+        </div>
+
+        <div class="filter-controls" id="filter-controls">
+            <!-- Filter buttons injected by JS -->
+        </div>
+
+        <div class="search-box-wrap">
+            <input type="text" id="faculty-search" class="search-input" placeholder="Caută facultate, program, departament..." data-i18n-placeholder="faculties.searchPlaceholder">
+        </div>
+
+        <div class="faculties-grid" id="faculties-grid">
+            <!-- Faculty cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Research Institutes -->
+    <section class="section-container" id="institute">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="institutes.subtitle">Cercetare</span>
+            <h2 class="section-title" data-i18n="institutes.title">Institutele de Cercetare</h2>
+        </div>
+        <div class="institutes-grid" id="institutes-grid">
+            <!-- Institute cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Campus & Student Life -->
+    <section class="section-container" id="campus">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="campus.subtitle">Viața de Student</span>
+            <h2 class="section-title" data-i18n="campus.title">Campus & Viața Studențească</h2>
+        </div>
+        <div class="student-grid" id="student-grid">
+            <!-- Student life cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Campus Location Map -->
+    <section class="section-container" id="map">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="map.subtitle">Locație</span>
+            <h2 class="section-title" data-i18n="map.title">Locația Campușilor</h2>
+        </div>
+        <div class="map-banner">
+            <div class="map-info">
+                <h3 data-i18n="map.infoTitle">Două Campuși Moderni</h3>
+                <p data-i18n="map.infoDesc">USM dispune de două campuși principaluri în Chișinău, echipați cu laboratoare de ultimă generație, biblioteci, cămine și complexe sportive.</p>
+                <ul class="campus-loc-list">
+                    <li class="campus-loc-item"><strong data-i18n="map.campus1.title">Campusul Mateevici (Central)</strong><span data-i18n="map.campus1.desc">Blocul 1, str. Alexei Mateevici 60 — Rectorat, Facultăți umaniste, Cămine</span></li>
+                    <li class="campus-loc-item"><strong data-i18n="map.campus2.title">Campusul Râșcani (Tehnic)</strong><span data-i18n="map.campus2.desc">str. Alexei Mateevici 60/1 — Facultăți tehnice, Laboratoare, Centru de Calcul</span></li>
+                </ul>
+            </div>
+            <div class="map-frame-wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.5!2d28.84!3d47.02!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c8c8c8c8c8c%3A0x1234567890abcdef!2sUniversitatea%20de%20Stat%20din%20Moldova!5e0!3m2!1sro!2smd!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Tour 360 Link -->
+    <section class="section-container" id="tour3d">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="tour360.subtitle">Experiență Immersivă</span>
+            <h2 class="section-title" data-i18n="tour360.title">Tur Virtual 360°</h2>
+        </div>
+        <div style="text-align: center; padding: 40px;">
+            <a href="tour360.html" class="btn-primary" data-i18n="tour360.btn">Deschide Turul 360°</a>
+        </div>
+    </section>
+
+    <!-- Admission & Fee Calculator -->
+    <section class="section-container" id="admitere">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="admission.subtitle">Admitere 2026</span>
+            <h2 class="section-title" data-i18n="admission.title">Admitere & Calculator Taxe</h2>
+        </div>
+
+        <div class="admission-banner">
+            <div class="admission-info">
+                <h3 data-i18n="admission.infoTitle">Înscrie-te la USM în 2026</h3>
+                <p data-i18n="admission.infoDesc">Universitatea de Stat din Moldova oferă programe de Licență, Masterat și Doctorat în 11 domenii fundamentale. Admiterea se desfășoară pe bază de concurs, conform calendarului aprobat de Ministerul Educației și Cercetării.</p>
+                <ul class="admission-steps">
+                    <li class="admission-step-item"><span class="step-num">1</span><span data-i18n="admission.step1">Creează cont pe admitere.usm.md</span></li>
+                    <li class="admission-step-item"><span class="step-num">2</span><span data-i18n="admission.step2">Completează dosarul online</span></li>
+                    <li class="admission-step-item"><span class="step-num">3</span><span data-i18n="admission.step3">Depune acte la comisie</span></li>
+                    <li class="admission-step-item"><span class="step-num">4</span><span data-i18n="admission.step4">Așteaptă rezultatele</span></li>
+                </ul>
+            </div>
+
+            <div class="calculator-box">
+                <h4 data-i18n="admission.calcTitle">Calculator Taxă Anuală</h4>
+                <div class="calc-group">
+                    <label class="calc-label" for="calc-faculty" data-i18n="admission.calcFaculty">Domeniu de Studii</label>
+                    <select id="calc-faculty" class="calc-select">
+                        <option value="informatica" data-price="14500" data-i18n="admission.faculty.informatica">Informatică</option>
+                        <option value="drept" data-price="13000" data-i18n="admission.faculty.drept">Drept</option>
+                        <option value="economic" data-price="12000" data-i18n="admission.faculty.economic">Științe Economice</option>
+                        <option value="litere" data-price="11000" data-i18n="admission.faculty.litere">Litere</option>
+                        <option value="stiinte" data-price="14000" data-i18n="admission.faculty.stiinte">Științe Exacte</option>
+                        <option value="medicina" data-price="16000" data-i18n="admission.faculty.medicina">Medicină</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label class="calc-label" for="calc-cycle" data-i18n="admission.calcCycle">Ciclul de Studii</label>
+                    <select id="calc-cycle" class="calc-select">
+                        <option value="1" data-multiplier="1.0" data-i18n="admission.cycle.licenta">Licență (Ciclul I)</option>
+                        <option value="2" data-multiplier="1.2" data-i18n="admission.cycle.master">Masterat (Ciclul II)</option>
+                        <option value="3" data-multiplier="1.5" data-i18n="admission.cycle.doctorat">Doctorat (Ciclul III)</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label class="calc-label" for="calc-form" data-i18n="admission.calcForm">Forma de Învățământ</label>
+                    <select id="calc-form" class="calc-select">
+                        <option value="zi" data-multiplier="1.0" data-i18n="admission.form.zi">Frecvență Zi</option>
+                        <option value="reduced" data-multiplier="0.7" data-i18n="admission.form.reduced">Frecvență Redusă</option>
+                        <option value="id" data-multiplier="1.3" data-i18n="admission.form.id">Învățământ la Distanță (ID)</option>
+                    </select>
+                </div>
+                <div class="calc-result">
+                    <div class="calc-price" id="calc-price">14,500 MDL / an</div>
+                    <small id="calc-note" data-i18n="admission.calcNote">* Taxa orientativă. Sumă finală confirmată la înscriere.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events -->
+    <section class="section-container" id="news">
+        <div class="section-header">
+            <span class="section-subtitle" data-i18n="news.subtitle">Actualități</span>
+            <h2 class="section-title" data-i18n="news.title">Noutăți & Evenimente</h2>
+        </div>
+        <div class="news-grid" id="news-grid">
+            <!-- News cards injected by JS -->
+        </div>
+    </section>
+
+    <!-- Modal (for faculty details) -->
+    <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-box">
+            <button id="modal-close" aria-label="Închide modal">&times;</button>
+            <h3 id="modal-title"></h3>
+            <div class="modal-tabs" id="modal-tabs">
+                <button class="modal-tab-btn active" data-tab="about" data-i18n="modal.tab.about">Despre</button>
+                <button class="modal-tab-btn" data-tab="programs" data-i18n="modal.tab.programs">Programe</button>
+                <button class="modal-tab-btn" data-tab="contact" data-i18n="modal.tab.contact">Contact</button>
+            </div>
+            <div id="modal-tab-about" class="modal-tab-content active"></div>
+            <div id="modal-tab-programs" class="modal-tab-content"></div>
+            <div id="modal-tab-contact" class="modal-tab-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 data-i18n="footer.about">Despre USM</h3>
+                <p data-i18n="footer.aboutDesc">Universitatea de Stat din Moldova este prima instituție de învățământ superior din republică, fondată în 1946. Acreditare ARACIS Clasa A.</p>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer.links">Link-uri Utile</h3>
+                <ul>
+                    <li><a href="https://admitere.usm.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.admission">Portal Admitere 2026</a></li>
+                    <li><a href="#facultati" data-i18n="footer.faculties">Facultățile USM</a></li>
+                    <li><a href="faq.html" data-i18n="footer.faq">Centrul de Asistență FAQ</a></li>
+                    <li><a href="https://microsoft365.usm.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.microsoft">Microsoft 365</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3 data-i18n="footer.contact">Contacte & Adresă</h3>
+                <p data-i18n="footer.address">Str. Alexei Mateevici 60, Chișinău, MD-2009<br>Republica Moldova<br>Tel: +373 22 244 248<br>Email: rectorat@usm.md</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span data-i18n="footer.copyright">© 2026 Universitatea de Stat din Moldova. Toate drepturile rezervate.</span>
+            <span>Production Grade Site</span>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top" data-i18n="backToTop">&uarr;</button>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
